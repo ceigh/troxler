@@ -34,6 +34,9 @@ Pass link to element to drawTroxler function:
   const canvas = document.querySelector('canvas')
   drawTroxler(canvas)
 
+  // without marker:
+  // drawTroxler(canvas, false)
+
 
 Effect
 ------

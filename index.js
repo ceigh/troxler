@@ -3,7 +3,7 @@ const rndByte = () => rndTo(255)
 const rndColor = (alpha = 0.3) =>
   `rgba(${rndByte()}, ${rndByte()}, ${rndByte()}, ${alpha})`
 
-function draw (canvas) {
+function draw (canvas, marker) {
   const { width: w, height: h } = canvas
   const side = Math.floor(Math.max(w, h) / 4)
   const ctx = canvas.getContext('2d')
@@ -29,6 +29,7 @@ function draw (canvas) {
   */
 
   // draw marker
+  if (!marker) return
   const markerSide = Math.round(Math.max(w, h) / 100)
   const markerSideHalf = markerSide / 2
   const markerX = Math.round(w / 2 - markerSideHalf)
@@ -38,10 +39,10 @@ function draw (canvas) {
   ctx.fillRect(markerX, markerY, markerSide, markerSide)
 }
 
-export function drawTroxler (canvas) {
+export function drawTroxler (canvas, marker = true) {
   if (!canvas) throw new Error('provide element')
   if (!canvas.getContext) {
     console.warn('this browser does not support canvas, ' +
       'or the transferred item is not canvas')
-  } else draw(canvas)
+  } else draw(canvas, marker)
 }
