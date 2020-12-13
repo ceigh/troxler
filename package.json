@@ -7,6 +7,11 @@
     "dev": "parcel fixture/index.html",
     "lint": "standard"
   },
+  "keywords": [
+    "canvas",
+    "troxler",
+    "optical-illusion"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
