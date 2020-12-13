@@ -1,17 +1,21 @@
 {
   "name": "troxler",
-  "version": "1.1.1",
+  "version": "1.1.2",
+  "description": "Draw Troxler's fading on canvas",
+  "author": "Artjom Löbsack <me@ceigh.com> (https://ceigh.com)",
   "license": "MIT",
   "main": "index.js",
-  "scripts": {
-    "dev": "parcel fixture/index.html",
-    "lint": "standard"
-  },
+  "repository": "github:ceigh/troxler",
+  "homepage": "https://git.ceigh.com/?p=troxler.git",
   "keywords": [
     "canvas",
     "troxler",
     "optical-illusion"
   ],
+  "scripts": {
+    "dev": "parcel fixture/index.html",
+    "lint": "standard"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
