@@ -2,8 +2,7 @@
   "name": "troxler",
   "version": "1.0.0",
   "license": "MIT",
-  "private": true,
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "parcel fixture/index.html",
     "lint": "standard"
