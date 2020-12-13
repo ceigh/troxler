@@ -1,19 +1,24 @@
-const rndByte = () => Math.floor(Math.random() * 255)
-const rndColor = (alpha = 0.5) =>
+const rndTo = to => Math.floor(Math.random() * to)
+const rndByte = () => rndTo(255)
+const rndColor = (alpha = 0.3) =>
   `rgba(${rndByte()}, ${rndByte()}, ${rndByte()}, ${alpha})`
 
 function draw (canvas) {
-  // const { width: w, height: h } = canvas
+  const { width: w, height: h } = canvas
+  const side = Math.floor(Math.max(w, h) / 4)
   const ctx = canvas.getContext('2d')
   // console.log(ctx)
+
+  ctx.fillStyle = 'rgb(255, 255, 255)'
+  ctx.fillRect(0, 0, w, h)
 
   // for blending
   ctx.filter = 'blur(1.5rem)'
 
-  ctx.fillStyle = rndColor()
-  ctx.fillRect(10, 10, 50, 50)
-  ctx.fillStyle = rndColor()
-  ctx.fillRect(30, 30, 50, 50)
+  for (let i = side; i--;) {
+    ctx.fillStyle = rndColor()
+    ctx.fillRect(rndTo(w), rndTo(h), side, side)
+  }
 
   /*
   // to enlarge brightness

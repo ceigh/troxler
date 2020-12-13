@@ -1,4 +1,4 @@
-import { drawTroxler } from '../src'
+import { drawTroxler } from '../'
 
 window.addEventListener('load', () => {
   const canvas = document.querySelector('canvas')
