@@ -1,0 +1,76 @@
+troxler
+-------
+
+This is a simple implementation of an optical illusion called the
+Troxler Effect.
+
+More information can be found here:
+https://en.wikipedia.org/wiki/Troxler%27s_fading
+
+This library simply draws a random effect pattern on the canvas.
+
+NPM: https://npmjs.com/troxler
+
+
+Installation
+------------
+
+You can install it like any other package:
+
+  yarn add troxler
+
+
+Usage
+-----
+
+Create canvas element on your page:
+
+  <canvas></canvas>
+
+Pass link to element to drawTroxler function:
+
+  import { drawTroxler } from 'troxler'
+
+  const canvas = document.querySelector('canvas')
+  drawTroxler(canvas)
+
+
+Effect
+------
+
+Fix the dot in the center and do not move your gaze for a few
+seconds. If the required immobility is achieved, the colored
+pattern shapes will disappear.
+
+
+Screenshots
+-----------
+
+For screenshots check /screenshots directory.
+
+
+Try now
+--------
+
+Clone repository and run dev command:
+
+  git clone git@git.ceigh.com:/var/www/git/troxler.git
+  cd troxler
+  yarn
+  yarn dev
+
+Open http://localhost:1234
+
+Or you can check this on my website: https://ceigh.com ;)
+
+
+Warning
+-------
+
+It is a simple sketch and the draw may run slowly.
+
+
+License
+-------
+
+MIT, 2020
