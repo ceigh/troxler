@@ -5,9 +5,11 @@
   "private": true,
   "main": "src/index.js",
   "scripts": {
-    "dev": "parcel fixture/index.html"
+    "dev": "parcel fixture/index.html",
+    "lint": "standard"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "standard": "^16.0.3"
   }
 }
