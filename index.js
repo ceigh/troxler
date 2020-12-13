@@ -9,22 +9,33 @@ function draw (canvas) {
   const ctx = canvas.getContext('2d')
   // console.log(ctx)
 
+  // fill white
   ctx.fillStyle = 'rgb(255, 255, 255)'
   ctx.fillRect(0, 0, w, h)
 
   // for blending
   ctx.filter = 'blur(1.5rem)'
 
+  // random rectangles
   for (let i = side; i--;) {
     ctx.fillStyle = rndColor()
     ctx.fillRect(rndTo(w), rndTo(h), side, side)
   }
 
   /*
-  // to enlarge brightness
+  // to enlarge brightness (extra)
   ctx.fillStyle = 'rgb(255, 255, 255, 0.5)'
   ctx.fillRect(0, 0, w, h)
   */
+
+  // draw marker
+  const markerSide = Math.round(Math.max(w, h) / 100)
+  const markerSideHalf = markerSide / 2
+  const markerX = Math.round(w / 2 - markerSideHalf)
+  const markerY = Math.round(h / 2 - markerSideHalf)
+  ctx.filter = 'blur(0)'
+  ctx.fillStyle = 'rgb(0, 0, 0)'
+  ctx.fillRect(markerX, markerY, markerSide, markerSide)
 }
 
 export function drawTroxler (canvas) {
