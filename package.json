@@ -8,7 +8,20 @@
     "dev": "parcel fixture/index.html",
     "lint": "standard"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.3.5",
     "parcel-bundler": "^1.12.4",
     "standard": "^16.0.3"
   }
