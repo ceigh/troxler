@@ -30,6 +30,9 @@ function draw (canvas, options) {
     ctx.fillRect(rndTo(w), rndTo(h), side, side)
   }
 
+  // reset filter; options below require no blur
+  ctx.filter = 'none'
+
   // enlarge brightness
   if (options.brighter) {
     ctx.fillStyle = 'rgb(255, 255, 255, 0.5)'
@@ -42,7 +45,6 @@ function draw (canvas, options) {
     const markerSideHalf = Math.round(markerSide / 2)
     const markerX = Math.round(w / 2 - markerSideHalf)
     const markerY = Math.round(h / 2 - markerSideHalf)
-    ctx.filter = 'none'
     ctx.fillStyle = 'rgb(0, 0, 0)'
     ctx.fillRect(markerX, markerY, markerSide, markerSide)
   }
