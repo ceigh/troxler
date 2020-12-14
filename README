@@ -50,8 +50,8 @@ You can provide additional options:
   // colors can be presented as hex, rgb, rgba or hsl
   const options = {
     bg: '#fff',      // fill bg color; false for transparent
-    marker: '#000',  // dot in center with provided color; false to not draw
-    brighter: false, // make image brighter
+    marker: '#000',  // color of center dot; false to not draw
+    brighter: 0,     // make image brighter (from 0 to 1), 1 - white
     worker: true     // draw on canvas in separate thread
   }
   drawTroxler(canvas, options)

@@ -34,8 +34,9 @@ function draw (canvas, options) {
   ctx.filter = 'none'
 
   // enlarge brightness
+  const { brighter } = options
   if (options.brighter) {
-    ctx.fillStyle = 'rgb(255, 255, 255, 0.5)'
+    ctx.fillStyle = `rgb(255, 255, 255, ${brighter})`
     ctx.fillRect(0, 0, w, h)
   }
 
@@ -67,7 +68,7 @@ function drawInWorker (canvas, options) {
 export function drawTroxler (canvas, {
   bg = '#fff',
   marker = '#000',
-  brighter = false,
+  brighter = 0,
   worker = true
 } = {}) {
   if (!canvas) throw new Error('provide element')

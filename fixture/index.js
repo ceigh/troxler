@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
   const args = [canvas, {
     bg: '#fff',
     marker: '#000',
-    brighter: false,
+    brighter: 0,
     worker: true
   }]
   drawTroxler(...args)
