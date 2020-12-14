@@ -37,6 +37,13 @@ Pass link to element to drawTroxler function:
   // with options:
   // drawTroxler(canvas, options)
 
+To clear canvas use:
+
+  import { clearTroxler } from 'troxler'
+
+  const canvas = document.querySelector('canvas')
+  clearTroxler(canvas)
+
 
 Options
 -------

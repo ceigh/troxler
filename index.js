@@ -78,3 +78,7 @@ export function drawTroxler (canvas, {
   if (worker) drawInWorker(canvas, options)
   else draw(canvas, options)
 }
+
+export function clearTroxler (canvas) {
+  canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+}
