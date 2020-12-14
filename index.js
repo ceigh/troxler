@@ -31,12 +31,15 @@ function draw (canvas, marker) {
   // draw marker
   if (!marker) return
   const markerSide = Math.round(Math.max(w, h) / 100)
-  const markerSideHalf = markerSide / 2
+  const markerSideHalf = Math.round(markerSide / 2)
   const markerX = Math.round(w / 2 - markerSideHalf)
   const markerY = Math.round(h / 2 - markerSideHalf)
-  ctx.filter = 'blur(0)'
+  ctx.filter = 'none'
   ctx.fillStyle = 'rgb(0, 0, 0)'
   ctx.fillRect(markerX, markerY, markerSide, markerSide)
+
+  // blur with css
+  // if (!canvas.style.filter) canvas.style.filter = 'blur(1.5rem)'
 }
 
 export function drawTroxler (canvas, marker = true) {
