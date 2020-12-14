@@ -52,17 +52,42 @@ function draw (canvas, options) {
   }
 }
 
-// move drawing to new thread
+// move drawing to new inline worker
+function workerOnMsg ({ data: { canvas, options } }) {
+  draw(canvas, options)
+}
 function drawInWorker (canvas, options) {
-  if (!window.Worker) {
-    console.warn('this browser does not support web workers, ' +
+  if (!window.Worker || !window.Blob) {
+    console.warn('this browser does not support web workers ' +
+      'or blobs, fallback to normal drawing')
+    draw(canvas, options)
+    return
+  }
+
+  // can't use this in firefox
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1609238
+  if (!canvas.transferControlToOffscreen) {
+    console.warn('this browser does not support offscreen canvas, ' +
       'fallback to normal drawing')
     draw(canvas, options)
     return
   }
 
-  // TODO: web workers
-  draw(canvas, options)
+  // blob for worker
+  const fStrings = [rndTo, rndByte, rndColor, draw].map(f => f.toString())
+  const blob = new window.Blob([
+    'self.onmessage = ',
+    workerOnMsg.toString(),
+    '\n', ...fStrings
+  ], { type: 'text/javascript' })
+
+  // inline worker
+  const url = URL.createObjectURL(blob)
+  const worker = new window.Worker(url)
+
+  // transfer canvas to worker
+  const offscreen = canvas.transferControlToOffscreen()
+  worker.postMessage({ canvas: offscreen, options }, [offscreen])
 }
 
 export function drawTroxler (canvas, {
