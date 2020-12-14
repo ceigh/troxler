@@ -1,7 +1,7 @@
 // helpers
 const rndTo = to => Math.floor(Math.random() * to)
 const rndByte = () => rndTo(255)
-const rndColor = (alpha = 0.3) =>
+const rndColor = (alpha = 1) =>
   `rgba(${rndByte()}, ${rndByte()}, ${rndByte()}, ${alpha})`
 
 // just draw on canvas
@@ -25,8 +25,9 @@ function draw (canvas, options) {
   // if (!canvas.style.filter) canvas.style.filter = 'blur(1.5rem)'
 
   // random rectangles
+  const { alpha } = options
   for (let i = side; i--;) {
-    ctx.fillStyle = rndColor()
+    ctx.fillStyle = rndColor(alpha)
     ctx.fillRect(rndTo(w), rndTo(h), side, side)
   }
 
@@ -94,6 +95,7 @@ export function drawTroxler (canvas, {
   bg = '#fff',
   marker = '#000',
   brighter = 0,
+  alpha = 0.3,
   worker = true
 } = {}) {
   if (!canvas) throw new Error('provide element')
@@ -103,7 +105,7 @@ export function drawTroxler (canvas, {
     return
   }
 
-  const options = { bg, brighter, marker, worker }
+  const options = { bg, brighter, marker, alpha, worker }
   if (worker) drawInWorker(canvas, options)
   else draw(canvas, options)
 }
