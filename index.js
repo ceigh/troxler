@@ -40,12 +40,13 @@ function draw (canvas, options) {
   }
 
   // draw marker
-  if (options.marker) {
+  const { marker } = options
+  if (marker) {
     const markerSide = Math.round(Math.max(w, h) / 100)
     const markerSideHalf = Math.round(markerSide / 2)
     const markerX = Math.round(w / 2 - markerSideHalf)
     const markerY = Math.round(h / 2 - markerSideHalf)
-    ctx.fillStyle = 'rgb(0, 0, 0)'
+    ctx.fillStyle = marker
     ctx.fillRect(markerX, markerY, markerSide, markerSide)
   }
 }
@@ -64,9 +65,9 @@ function drawInWorker (canvas, options) {
 }
 
 export function drawTroxler (canvas, {
-  bg = 'rgb(255, 255, 255)',
+  bg = '#fff',
+  marker = '#000',
   brighter = false,
-  marker = true,
   worker = true
 } = {}) {
   if (!canvas) throw new Error('provide element')

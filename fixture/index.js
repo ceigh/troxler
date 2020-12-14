@@ -3,10 +3,10 @@ import { drawTroxler, clearTroxler } from '../'
 window.addEventListener('load', () => {
   const canvas = document.querySelector('canvas')
   const args = [canvas, {
-    // marker: true,
-    // brighter: false,
-    // bg: 'rgb(255, 255, 255)',
-    // worker: true
+    bg: '#fff',
+    marker: '#000',
+    brighter: false,
+    worker: true
   }]
   drawTroxler(...args)
 

@@ -25,11 +25,11 @@ Usage
 
 Create canvas element on your page:
 
-  <canvas></canvas>
+  <canvas width='300' height='300'></canvas>
 
 Pass link to element to drawTroxler function:
 
-  import { drawTroxler } from 'troxler'
+  import { drawTroxler, clearTroxler } from 'troxler'
 
   const canvas = document.querySelector('canvas')
   drawTroxler(canvas)
@@ -37,11 +37,7 @@ Pass link to element to drawTroxler function:
   // with options:
   // drawTroxler(canvas, options)
 
-To clear canvas use:
-
-  import { clearTroxler } from 'troxler'
-
-  const canvas = document.querySelector('canvas')
+  // to clear
   clearTroxler(canvas)
 
 
@@ -51,11 +47,12 @@ Options
 You can provide additional options:
 
   // default values
+  // colors can be presented as hex, rgb, rgba or hsl
   const options = {
-    bg: 'rgb(255, 255, 255)', // fill bg color; false for transparent
-    brighter: false,          // make image brighter
-    marker: true,             // draw dot in center
-    worker: true              // draw on canvas in separate thread
+    bg: '#fff',      // fill bg color; false for transparent
+    marker: '#000',  // dot in center with provided color; false to not draw
+    brighter: false, // make image brighter
+    worker: true     // draw on canvas in separate thread
   }
   drawTroxler(canvas, options)
 
