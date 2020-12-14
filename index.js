@@ -39,10 +39,28 @@ function draw (canvas, marker) {
   ctx.fillRect(markerX, markerY, markerSide, markerSide)
 }
 
-export function drawTroxler (canvas, marker = true) {
+function drawInWorker (canvas, marker) {
+  if (!window.Worker) {
+    console.warn('this browser does not support web workers, ' +
+      'draw in normal mode now, you can suppress this message ' +
+      'by call drawTroxler(canvas, marker, false)')
+    draw(canvas, marker)
+    return
+  }
+
+  // TODO: worker draw code
+  draw(canvas, marker)
+}
+
+export function drawTroxler (canvas, marker = true, worker = true) {
+  // guards
   if (!canvas) throw new Error('provide element')
   if (!canvas.getContext) {
     console.warn('this browser does not support canvas, ' +
       'or the transferred item is not canvas')
-  } else draw(canvas, marker)
+    return
+  }
+
+  if (worker) drawInWorker(canvas, marker)
+  else draw(canvas, marker)
 }
