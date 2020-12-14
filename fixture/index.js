@@ -8,6 +8,7 @@ window.addEventListener('load', () => {
     brighter: 0,
     alpha: 0.3,
     blur: '1.5rem',
+    cssBlur: false,
     worker: true
   }]
   drawTroxler(...args)
