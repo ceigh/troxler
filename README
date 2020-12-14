@@ -34,8 +34,23 @@ Pass link to element to drawTroxler function:
   const canvas = document.querySelector('canvas')
   drawTroxler(canvas)
 
-  // without marker:
-  // drawTroxler(canvas, false)
+  // with options:
+  // drawTroxler(canvas, options)
+
+
+Options
+-------
+
+You can provide additional options:
+
+  // default values
+  const options = {
+    bg: 'rgb(255, 255, 255)', // fill bg color; false for transparent
+    brighter: false,          // make image brighter
+    marker: true,             // draw dot in center
+    worker: true              // draw on canvas in separate thread
+  }
+  drawTroxler(canvas, options)
 
 
 Effect
