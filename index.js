@@ -58,7 +58,7 @@ function workerOnMsg ({ data: { canvas, options } }) {
 }
 function drawInWorker (canvas, options) {
   if (!window.Worker || !window.Blob) {
-    console.warn('this browser does not support web workers ' +
+    console.warn('This browser does not support web workers ' +
       'or blobs, fallback to normal drawing')
     draw(canvas, options)
     return
@@ -67,7 +67,7 @@ function drawInWorker (canvas, options) {
   // can't use this in firefox
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1609238
   if (!canvas.transferControlToOffscreen) {
-    console.warn('this browser does not support offscreen canvas, ' +
+    console.warn('This browser does not support offscreen canvas, ' +
       'fallback to normal drawing')
     draw(canvas, options)
     return
@@ -98,7 +98,7 @@ export function drawTroxler (canvas, {
 } = {}) {
   if (!canvas) throw new Error('provide element')
   if (!canvas.getContext) {
-    console.warn('this browser does not support canvas, ' +
+    console.warn('This browser does not support canvas, ' +
       'or the transferred item is not canvas')
     return
   }
