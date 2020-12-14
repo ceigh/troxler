@@ -29,7 +29,7 @@ Create canvas element on your page:
 
 Pass link to element to drawTroxler function:
 
-  import { drawTroxler, clearTroxler } from 'troxler'
+  import { drawTroxler, clearCanvas } from 'troxler'
 
   const canvas = document.querySelector('canvas')
   drawTroxler(canvas)
@@ -38,7 +38,7 @@ Pass link to element to drawTroxler function:
   // drawTroxler(canvas, options)
 
   // to clear
-  clearTroxler(canvas)
+  clearCanvas(canvas)
 
 
 Options

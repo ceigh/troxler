@@ -1,4 +1,4 @@
-import { drawTroxler, clearTroxler } from '../'
+import { drawTroxler, clearCanvas } from '../'
 
 window.addEventListener('load', () => {
   const canvas = document.querySelector('canvas')
@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
 
   // redraw
   canvas.addEventListener('click', () => {
-    clearTroxler(canvas)
+    clearCanvas(canvas)
     drawTroxler(...args)
   })
 })
