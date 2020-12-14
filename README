@@ -53,6 +53,7 @@ You can provide additional options:
     marker: '#000',  // color of center dot; false to not draw
     brighter: 0,     // make image brighter (from 0 to 1), 1 - white
     alpha: 0.3,      // opacity of shapes
+    blur: '1.5rem'   // blur of canvas
     worker: true     // draw on canvas in separate thread
   }
   drawTroxler(canvas, options)

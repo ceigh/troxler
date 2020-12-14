@@ -7,6 +7,7 @@ window.addEventListener('load', () => {
     marker: '#000',
     brighter: 0,
     alpha: 0.3,
+    blur: '1.5rem',
     worker: true
   }]
   drawTroxler(...args)

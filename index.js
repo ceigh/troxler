@@ -20,7 +20,7 @@ function draw (canvas, options) {
 
   // for blending
   // blur with canvas
-  ctx.filter = 'blur(1.5rem)'
+  ctx.filter = `blur(${options.blur})`
   // blur with css
   // if (!canvas.style.filter) canvas.style.filter = 'blur(1.5rem)'
 
@@ -96,6 +96,7 @@ export function drawTroxler (canvas, {
   marker = '#000',
   brighter = 0,
   alpha = 0.3,
+  blur = '1.5rem',
   worker = true
 } = {}) {
   if (!canvas) throw new Error('provide element')
@@ -105,7 +106,7 @@ export function drawTroxler (canvas, {
     return
   }
 
-  const options = { bg, brighter, marker, alpha, worker }
+  const options = { bg, brighter, marker, alpha, blur, worker }
   if (worker) drawInWorker(canvas, options)
   else draw(canvas, options)
 }
