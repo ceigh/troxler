@@ -29,16 +29,13 @@ Create canvas element on your page:
 
 Pass link to element to drawTroxler function:
 
-  import { drawTroxler, clearCanvas } from 'troxler'
+  import { drawTroxler } from 'troxler'
 
   const canvas = document.querySelector('canvas')
   drawTroxler(canvas)
 
   // with options:
   // drawTroxler(canvas, options)
-
-  // to clear
-  clearCanvas(canvas)
 
 
 Options
